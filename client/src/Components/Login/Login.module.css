@@ -1,0 +1,29 @@
+.main {
+  height: 90vh;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.full {
+  height: 90vh;
+  width: 100%;
+}
+.button {
+  width: 80%;
+  margin: 30px;
+  font-size: 50px;
+}
+.line {
+  height: 80vh;
+  padding: 50px 0 50px 0;
+  margin: 50px 0 50px 0;
+  border: solid rgb(156, 156, 156) 1px;
+  width: 1px;
+  justify-self: center;
+}
+.form {
+  width: 90%;
+}
