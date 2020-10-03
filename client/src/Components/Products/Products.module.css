@@ -1,0 +1,13 @@
+.main {
+  margin-top: 40px;
+}
+.header {
+  margin-bottom: 10px;
+}
+.modal {
+  width: 50vw !important;
+}
+.right {
+  display: flex;
+  justify-content: flex-end;
+}

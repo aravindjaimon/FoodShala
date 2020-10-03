@@ -65,8 +65,16 @@ const SignUp = () => {
                 <Input name="email" type="email"></Input>
               </FormGroup>
               <FormGroup>
+                <Label>Mobile</Label>
+                <Input name="mobile" type="tel"></Input>
+              </FormGroup>
+              <FormGroup>
                 <Label>Password</Label>
                 <Input name="password" type="password"></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label>Address</Label>
+                <Input name="address" type="textarea"></Input>
               </FormGroup>
               <FormGroup>
                 <Label>Food Preference</Label>
@@ -91,6 +99,10 @@ const SignUp = () => {
               <FormGroup>
                 <Label>Business Email</Label>
                 <Input name="email" type="email"></Input>
+              </FormGroup>
+              <FormGroup>
+                <Label>Business Mobile</Label>
+                <Input name="mobile" type="tel"></Input>
               </FormGroup>
               <FormGroup>
                 <Label>Password</Label>
