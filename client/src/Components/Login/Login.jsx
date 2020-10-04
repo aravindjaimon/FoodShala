@@ -3,15 +3,27 @@ import {
   Button,
   Col,
   Container,
-  Form,
   FormGroup,
   Input,
   Label,
   Row,
 } from "reactstrap";
+import { PostData } from "./../../Services/PostData";
 import styles from "./Login.module.css";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const CustomerLogin = () => {
+    const body = { email: email, pass: password, type: "customer" };
+    PostData("login", body);
+  };
+  const RestaurantLogin = () => {
+    const body = { email: email, pass: password, type: "restaurant" };
+    PostData("login", body);
+  };
+
   const [CustomerToggle, SetCustomerToggle] = useState(false);
   const [RestaurantToggle, setRestaurantToggle] = useState(false);
   const [clicked, setClicked] = useState(true);
@@ -55,38 +67,66 @@ const Login = () => {
         <Col md="5" className={styles.center}>
           {clicked && <h1>Select A User Type</h1>}
           {CustomerToggle ? (
-            <Form className={`${styles.form} ${styles.customer}`}>
+            <div className={`${styles.form} ${styles.customer}`}>
               <FormGroup>
                 <Label>Email</Label>
-                <Input name="email" type="email"></Input>
+                <Input
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  name="email"
+                  value={email}
+                  type="email"
+                ></Input>
               </FormGroup>
               <FormGroup>
                 <Label>Password</Label>
-                <Input name="password" type="password"></Input>
+                <Input
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  name="password"
+                  value={password}
+                  type="password"
+                ></Input>
               </FormGroup>
               <div className={styles.center}>
-                <Button color="success" type="submit">
+                <Button color="success" type="submit" onClick={CustomerLogin}>
                   Login
                 </Button>
               </div>
-            </Form>
+            </div>
           ) : null}
           {RestaurantToggle ? (
-            <Form className={`${styles.form} ${styles.customer}`}>
+            <div className={`${styles.form} ${styles.customer}`}>
               <FormGroup>
                 <Label>Business Email</Label>
-                <Input name="email" type="email"></Input>
+                <Input
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  name="email"
+                  type="email"
+                ></Input>
               </FormGroup>
               <FormGroup>
                 <Label>Password</Label>
-                <Input name="password" type="password"></Input>
+                <Input
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  name="password"
+                  type="password"
+                ></Input>
               </FormGroup>
               <div className={styles.center}>
-                <Button color="primary" type="submit">
+                <Button onClick={RestaurantLogin} color="primary" type="submit">
                   Login
                 </Button>
               </div>
-            </Form>
+            </div>
           ) : null}
         </Col>
       </Row>
